@@ -1,6 +1,6 @@
 from PIL import Image
 import numpy as np
-import random
+#import random
 import os
 
 # Read images
@@ -9,50 +9,40 @@ key1 = Image.open("Image_and_ImageData/key1.png")
 key2 = Image.open("Image_and_ImageData/key2.png")
 I = Image.open("Image_and_ImageData/I.png")
 Eprime = Image.open("Image_and_ImageData/Eprime.png")
-#I.show()
+# Get the size of the images
 width, height = E.size
-#print(width,height)
-output = Image.new("L",(width, height), 0)
-
-
-os.system("pause")
-
-w1 = np.random.rand(1)
-w2 = np.random.rand(1)
-w3 = np.random.rand(1)
-
-# Convert image to numpy's array
+output = Image.new("L", (width, height), 0)
+output.show()
+# Convert images to number array
+arrE = np.array(E)
 arrK1 = np.array(key1)
 arrK2 = np.array(key2)
 arrI = np.array(I)
-arrE = np.array(E)
-arrEP = np.array(Eprime)
 
-# Setting parameter of gradient descent"""
-rate = 1e-7
-#epoch = 69
+w = np.zeros(3) # [0., 0., 0.]
+print(w)
+max = 69 # Max iteration limit
+epsilon = 1e-30 # vigilance level
+alpha = 1e-5 # Learning rate
 epoch = 1
-limit = 10 # MaxIterLimit
 
-a = np.zeros((width, height))
-e = np.zeros((width, height))
+while True:
+    preW = w
+    for i in range(0, height-1):
+        for j in range(0, width-1):
+            x = np.array([arrK1[i][j], arrK2[i][j], arrI[i][j]])
+            a = w.dot(x.T)
+            e = arrE[i][j] - a
+            w = w + (alpha * e) * x
+            #print(a)
+        alpha /= 10
 
-while(epoch == 1 or epoch < limit):
-    for w in range(0, width - 1):
-        for h in range(0, height - 1):
-            a[w,h] = (arrK1[w,h] * w1) + (arrK2[w,h] * w2) + (arrI[w,h] * w3)
-            e[w,h] = arrE[w,h] - a[w,h]
-            w1 += rate * e[w,h] * arrK1[w,h]
-            w2 += rate * e[w,h] * arrK2[w,h]
-            w3 += rate * e[w,h] * arrI[w,h]
-    print("epoch: ", epoch)
-    print("weight: ", w1, w2, w3)
+    if epoch >= max or abs(np.linalg.norm(w - preW)) <= epsilon:
+        break
     epoch += 1
+#print(arrE[len(arrE)-1])
 
-new = np.zeros((width, height))
-new = (EP-(w1*k1)-(w2*k2))/w3
+#while(epoch == 1 || epoch < max)
+print(w)
 
-new = Image.fromarray(new)
-new = new.convert('RGB')
-new.save("Iprime.jpg")
-new.show()
+os.system("pause")
