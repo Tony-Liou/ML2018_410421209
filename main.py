@@ -1,6 +1,6 @@
 from PIL import Image
 import numpy as np
-#import os
+import os
 
 # Read images
 E = Image.open("Image_and_ImageData/E.png")
@@ -20,10 +20,10 @@ arrK2 = np.array(key2)
 arrI = np.array(I)
 
 # Setting the parameters
-w = np.zeros(3) # [0., 0., 0.]
-max = 69 # Max iteration limit
+w = np.zeros(3) # [0., 0., 0.] randomize
+max = 10 # Max iteration limit
 epsilon = 1e-30 # vigilance level
-alpha = 1e-5 # Learning rate
+alpha = 1e-7 # Learning rate
 epoch = 1
 
 while True:
@@ -35,7 +35,7 @@ while True:
             e = arrE[i][j] - a
             w = w + (alpha * e) * x
             #print(a)
-        alpha /= 10
+        #alpha /= 10
 
     if epoch >= max or abs(np.linalg.norm(w - preW)) <= epsilon:
         break
@@ -44,4 +44,6 @@ while True:
 output = (Eprime - (w[0] * key1) - (w[1] * key2)) / w[2]
 Image.fromarray(output).show()
 
-#os.system("pause")
+print("MaxIterLimit: ", max, "alpha: %.20f"%alpha, "epsilon: ", epsilon)
+print("W = ", w)
+os.system("pause")
