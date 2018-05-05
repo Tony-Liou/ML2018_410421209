@@ -10,7 +10,7 @@
 - [Training samples](#training-samples)
 - [Implementation](#implementation)
 - [Parameters](#parameters)
-- [Weight vector](#weight-vector)
+- [Weight vector 𝐰](#weight-vector-𝐰)
 - [Display of images](#display-of-images)
 - [Problems](#problems)
 - [Learning experience](#learning-experience)
@@ -61,11 +61,11 @@ All data are from [**e-Learning**](http://www.elearn.ndhu.edu.tw/moodle/file.php
 
 ### Problems
 
-由於很少用python所以在找相關的package的時候會花比較多的時間，像是numpy以及pillow；對於語法方面也較花時間才能確定正確的寫法。
+由於很少用python所以在找相關的package的時候會花比較多的時間，像是numpy以及pillow；對於語法方面也較花時間才能確定正確的寫法。  
 α、𝜖、MaxIterLimit...需要嘗試一定次數才能大約得知，也讓我試了非常多次。
 
 ### Learning experience
 
-因為有非常多的第一次，所以嘗試起來非常花時間，但是也讓我學會許多東西。
-例如：python基本語法、numpy和PIL用途、markdown語法以及最重要的--神經網路的基礎。
+因為有非常多的第一次，所以嘗試起來非常花時間，但是也讓我學會許多東西。  
+例如：python基本語法、numpy和PIL用途、markdown語法以及最重要的--神經網路的基礎。  
 雖然把演算法和參數的用途弄懂，就已經花費了大量的時間，但是最終做出來的成的果，我覺得還是滿意的。
