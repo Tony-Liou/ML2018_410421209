@@ -1,8 +1,3 @@
-# ML2018_410421209
-- [Assignment1](#image-decryption-by-a-single-layer-neural-network)
-
-
-
 ## Image decryption by a single-layer neural network
 
 **Table of contents**
@@ -53,11 +48,11 @@ All data are from [**e-Learning**](http://www.elearn.ndhu.edu.tw/moodle/file.php
 
 **Incrypted image**
 
-![Encrypted image](/Image_and_ImageData/Eprime.png)
+![Encrypted image](Assignment 1/Image_and_ImageData/Eprime.png)
 
 **Decrypted image**
 
-![Original image](/Image_and_ImageData/origin.png)
+![Original image](Assignment 1/Image_and_ImageData/origin.png)
 
 ### Problems
 
