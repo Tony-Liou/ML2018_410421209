@@ -52,7 +52,7 @@ All data are from [**e-Learning**](http://www.elearn.ndhu.edu.tw/moodle/file.php
 
 **Decrypted image**
 
-![Original image](Assignment%201/Image_and_ImageData/origin.png)
+![Original image](../Assignment%201/Image_and_ImageData/origin.png)
 
 ### Problems
 
