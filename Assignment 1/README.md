@@ -48,7 +48,7 @@ All data are from [**e-Learning**](http://www.elearn.ndhu.edu.tw/moodle/file.php
 
 **Incrypted image**
 
-![Encrypted image](../Image_and_ImageData/Eprime.png)
+![Encrypted image](../Assignment%201/Image_and_ImageData/Eprime.png)
 
 **Decrypted image**
 
