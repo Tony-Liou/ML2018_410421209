@@ -1,4 +1,4 @@
-## Image decryption by a single-layer neural network
+# Image decryption by a single-layer neural network
 
 **Table of contents**
 ---------------------
