@@ -1,1 +1,1 @@
-# Handwritten digital recognition
+# Handwritten digit recognition
