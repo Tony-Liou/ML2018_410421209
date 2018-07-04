@@ -27,4 +27,4 @@ def uni_size():
         new_img = new_img.resize((180, 240), Image.BILINEAR) # 雙線性
         new_img.save(res_path + '/' + filename)
 
-    print("Unified images")
+    print("Images unified")
