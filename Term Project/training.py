@@ -1,6 +1,6 @@
-import win_unicode_console
+'''import win_unicode_console
 win_unicode_console.enable()
-
+'''
 from PIL import Image
 import os
 import numpy as np
@@ -10,7 +10,6 @@ import keras
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, Conv2D, MaxPooling2D, Flatten
 from keras.utils import to_categorical
-#from sklearn.utils import shuffle
 
 x_train = []
 x_one_hot = []
@@ -20,15 +19,15 @@ y_one_hot = []
 
 #s22_02
 n=0
-path=r".\Face Database"
+path="./Resized Face Database"
 #print(os.listdir(path))
 
 for filename in os.listdir(path):
     if(filename[0] == 's'):
-        test = Image.open(path+'\\'+filename)
+        temp = Image.open(path + '/' + filename)
 
         num = int(filename[1]) * 10 + int(filename[2])
-        matrix = np.array(test) / 255
+        matrix = np.array(temp) / 255
         num_temp = int(filename[4]) * 10 + int(filename[5])
         #print(matrix[0][0])
 
@@ -36,28 +35,13 @@ for filename in os.listdir(path):
             n=num
             random_list=[1,2,3,4,6,7,8,10,11,12,13,14,15]
             random.shuffle(random_list)
-        if(num_temp==random_list[0] or num_temp==random_list[1]):
+        if(num_temp == random_list[0] or num_temp == random_list[1]):
             y_test.append(matrix)
             y_one_hot.append(num)
 
         x_train.append(matrix)
         x_one_hot.append(num)
 
-        '''
-        else:
-            x_train.append(matrix)
-            x_one_hot.append(num)
-        '''
-
-        '''
-        if(num_temp >= 14):
-            y_test.append(matrix)
-            y_one_hot.append(num)
-
-        else:
-            x_train.append(matrix)
-            x_one_hot.append(num)
-        '''
 
 x_data = np.array(x_train)
 x_label = np.array(x_one_hot)
@@ -109,3 +93,5 @@ model.save(r'.\model.h5')
 score = model.evaluate(y_data,y_label,verbose=1)
 print('Test loss:', score[0])
 print('Test accuracy:', score[1])
+
+print("---Training finished---")

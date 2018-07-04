@@ -1,21 +1,20 @@
-import win_unicode_console
+'''import win_unicode_console
 win_unicode_console.enable()
-
+'''
 from PIL import Image
 from keras.models import load_model
 import os
 import numpy as np
 import operator
 
-model = load_model('model_no_valid.h5')
+model = load_model('model.h5')
 model.summary()
 
-#path=r".\testData"
-path=r".\Face Database"
+path="./Resized Face Database"
 
 for filename in os.listdir(path):
     if(filename[0] == 's'):
-        test = Image.open(path+'\\'+filename)
+        test = Image.open(path + '/' + filename)
         Ans = int(filename[1]) * 10 + int(filename[2])
         matrix = np.array(test) / 255
         matrix = matrix[np.newaxis,...]
