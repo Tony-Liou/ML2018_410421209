@@ -7,27 +7,15 @@ import operator
 ''' Change "path" if the prediction target isn't in the folder '''
 path = "./Resized Face Database"
 
-
-def self_predict():
-    flag = input("new target path?[y/n]")
-    
-    if flag == "y":
-        return False
-    else:
-        return True
     
 def predict():
     print("-----Start predicting-----")
-    
-    if self_predict():
-        print("path:", path)
-    else:
-        print("new path")
         
     model = load_model("./model.h5")
     model.summary()
 
     suc = 0
+    normal = 0
     fail = 0
     #input_shape=(240, 180, 3)
 
@@ -35,7 +23,7 @@ def predict():
         temp = Image.open(path + '/' + filename)
         ans = int(filename[1] + filename[2])
         matrix = np.array(temp) / 255
-        matrix = matrix[np.newaxis,...]
+        matrix = matrix[np.newaxis, ...]
         result = model.predict(matrix)
     
         result_dict = {}
@@ -48,6 +36,8 @@ def predict():
     
         if(sorted_result_dict[0][0] == ans):
             suc += 1
+        elif(sorted_result_dict[1][0] == ans or sorted_result_dict[2][0] == ans or sorted_result_dict[3][0] == ans or sorted_result_dict[4][0] == ans):
+            normal += 1
         else:
             fail += 1
     
@@ -62,4 +52,4 @@ def predict():
         
 
     print("\nSummary")
-    print("Successful:", suc, "; Failed:", fail)
+    print("Successful:", suc, ", Normal:", normal, ", Failed:", fail)

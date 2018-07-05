@@ -28,7 +28,7 @@ def train():
     
         if(n != num):
             n = num
-            random_list = [1,2,4,5,6,7,8,9,10,11,13,14,15] # remove 3 and 12
+            random_list = [1,2,3,4,6,7,8,10,11,12,13,14,15] # remove 5 and 9
             random.shuffle(random_list)
         if(num_temp == random_list[0] or num_temp == random_list[1]):
             y_test.append(matrix)
@@ -47,10 +47,12 @@ def train():
     print(x_data.shape)
     print(y_data.shape)
 
-    x_label = to_categorical(x_label,num_classes = 51)
-    y_label = to_categorical(y_label,num_classes = 51)
+    x_label = to_categorical(x_label, num_classes = 51)
+    y_label = to_categorical(y_label, num_classes = 51)
 
     model = Sequential()
+    
+    # 3 CNN
 
     model.add(Conv2D(128, 3, activation="relu", input_shape=(240, 180, 3), padding="same"))
     model.add(Dropout(0.25))
@@ -78,7 +80,7 @@ def train():
 
     train_history = model.fit(x_data,x_label,
                               batch_size=16,
-                              epochs=10,
+                              epochs=20,
                               verbose=1,
                               shuffle=True,
                               validation_data=(y_data,y_label))
