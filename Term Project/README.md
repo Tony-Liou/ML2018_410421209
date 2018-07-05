@@ -1,5 +1,9 @@
 # Face Recognition
 
+- Anaconda
+- Keras(Tensorflow)
+- Spyder
+
 ## Machine learning technology
 
 ## Modules and functions
