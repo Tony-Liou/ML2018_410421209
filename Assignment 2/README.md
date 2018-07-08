@@ -14,11 +14,11 @@
 - fetch_mldata
 - train_test_split
 - PCA(Principal Component Analysis)
-- SVC(Support Vector Machine)
+- SVM(Support Vector Machine)
 
 ## SVM Report
 
-Label | Precision | recall | f1-score | support
+Label | Precision | Recall | F1-score | Support
 --- | --- | --- | --- | ---
 0 | 0.99 | 0.99 | 0.99 | 727
 1 | 0.99 | 0.98 | 0.98 | 741
@@ -31,7 +31,6 @@ Label | Precision | recall | f1-score | support
 8 | 0.97 | 0.97 | 0.97 | 642
 9 | 0.98 | 0.97 | 0.97 | 679
 avg / total | 0.98 | 0.98 | 0.98 | 7000
-
 
 ## Problems
 
